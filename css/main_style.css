@@ -1,0 +1,141 @@
+/*
+=====================================
+Navbar toggler
+=====================================
+*/
+.navbar-toggler {
+        border: 0;
+         width: 27px;
+        height: 20px;
+      position: relative;
+    transition: .20s ease-in-out;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+       outline: none;
+    box-shadow: none;
+        border: 0;
+      position: relative
+}
+
+.navbar-toggler span {
+    margin: 0;
+    padding: 0;
+}
+
+.toggler-icon {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(102deg, rgba(70,1,92,0.45) 0%, rgba(145,1,89,1) 100%);
+    border-radius: 1px;
+    opacity: 1;
+    left: 0;
+    top: 10px;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.middle-bar {
+    margin-top: 0px;
+}
+
+/* On navbar collapse */
+
+.navbar-toggler.collapsed .top-bar {
+    position: absolute;
+    top: 0px;
+    transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+    position: absolute;
+    top: 10px;
+    filter: alpha(opacity=100);
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+    position: absolute;
+    top: 20px;
+    transform: rotate(0deg);
+}
+
+
+/* On navbar click */
+
+.navbar-toggler .top-bar {
+    top: inherit;
+    transform: rotate(135deg);
+}
+
+.navbar-toggler .middle-bar {
+    opacity: 0;
+    top: inherit;
+    filter: alpha(opacity=0);
+}
+
+.navbar-toggler .bottom-bar {
+    top: inherit;
+    margin-top: 0px;
+    transform: rotate(-135deg);
+}
+
+/* Navbar line colours */
+.navbar-toggler.collapsed .toggler-icon {
+    background: linear-gradient(102deg, rgba(70,1,92,0.45) 0%, rgba(145,1,89,1) 100%);
+}
+
+/*
+=======================================
+COT table page
+=======================================
+*/
+
+/* div .main-page-body {
+           background: linear-gradient(to bottom, rgba(172, 160, 205, 0.52), rgba(117, 19, 93, 0.73));
+     background-image: linear-gradient(to bottom, rgba(172, 160, 205, 0.52), rgba(117, 19, 93, 0.73)),
+                      url(../assets/trade_floor.jpg);
+    background-repeat: no-repeat;
+      background-size: auto auto;
+            max-width: 100%;
+             position: relative;
+       padding-bottom: 100px
+} */
+
+/*
+=======================================
+Homepage get started button
+=======================================
+*/
+.btn.btn-primary.btn-lg {
+    background-color: #9900FF;
+              border: 0px;
+         font-weight: bold;
+       margin-bottom: 220px;
+    /*--bs-btn-font-weight: 600;
+    --bs-btn-background: var(--bs-purple-bg);
+    --bs-btn-color: var(--bs-black);
+    --bs-btn-bg: var(--bd-violet-bg);*/
+}
+
+/*
+ * ========================================
+ * Currency selector
+ * ========================================
+ **/
+ .currency-selector-wrapper {
+               color: rgba(27, 27, 32, 0.85);
+          text-align: center;
+             padding: 10px;
+       margin-bottom: 15px;
+}
+/*
+============================================
+Page footer
+============================================
+*/
