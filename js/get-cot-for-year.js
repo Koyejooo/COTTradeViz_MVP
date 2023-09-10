@@ -13,7 +13,7 @@ export async function getCOTDataForYear (year = 2021) {
       mxn: '095741',
       nzd: '112741',
       dxy: '098662',
-      crude_oil: '06775A',
+      crude_oil: '06765A',
       xag: '084691',
       xau: '088691',
       zar: '122741'
