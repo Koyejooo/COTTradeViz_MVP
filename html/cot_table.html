@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Koyejo Adinlewa">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2021 COT Table - COTTradeViz</title>
+        <link rel="icon" type="images/x-icon" href="../assets/favicon.ico">
+        <link rel="stylesheet" href="../css/main_style.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+		<script type="module" src="../js/get-cot-for-year.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </head>
+    <body  class="d-flex flex-column min-vh-100" style="background-color: #B4A7D6; font-family: 'Inria Serif', serif;">
+        <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to top, rgba(120,11,219,0.65) 0%, rgba(93,48,243,0.35) 100%);" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="homepage.html">
+                    <img src="../assets/logo.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
+                    COTTradeViz
+                </a>
+                <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="toggler-icon top-bar"></span>
+                    <span class="toggler-icon middle-bar"></span>
+                    <span class="toggler-icon bottom-bar"></span>
+                </button>                      
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="homepage.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Get Started
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="hist_visualizer.html">Historical Visualizer</a></li>
+                                <li><a class="dropdown-item" href="cot_table.html">View current COT data</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Learn More
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="faqs.html">FAQs</a></li>
+                                <li><a class="dropdown-item" href="learn_more.html">Learn More about the COT Report</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        <a target="_blank" href="https://github.com/Koyejooo" class="text-black"><i class="fa-brands fa-github me-2 fa-1x"></i></a>
+                        <a target="_blank" href="https://linkedin.com/in/koyejo-adinlewa-05144b107" class="text-blue"><i class="fa-brands fa-linkedin me-2 fa-1x"></i></a>
+                        <a target="_blank" href="https://twitter.com/Its_Koyejo" class="text-blue"><i class="fa-brands fa-twitter me-2 fa-1x"></i></a>
+                    </span>                        
+                </div>
+            </div>
+        </nav>
+        <div class="container h-75">
+            <section class="row">
+                <div class="d-flex gap-2 justify-content-center py-4">Site ticker</div>
+            </section>
+        </div>
+        <div class="main-page-body" style="background: linear-gradient(to bottom, rgba(172, 160, 205, 0.52), rgba(117, 19, 93, 0.73));
+        background-image: linear-gradient(to bottom, rgba(172, 160, 205, 0.52), rgba(117, 19, 93, 0.73)), url(../assets/trade_floor.jpg);">
+            <div class="currency-selector-wrapper" style="font-size: medium;">
+                <select id="currency-selector" aria-label="Currency pair selector">
+                    <option selected>Choose a currency</option>
+                    <option value="aud">AUD</option>
+                    <option value="cad">CAD</option>
+                    <option value="chf">CHF</option>
+                    <option value="dxy">U.S. Dollar Index</option>
+                    <option value="eur">EUR</option>
+                    <option value="gbp">GBP</option>
+                    <option value="jpy">JPY</option>
+                    <option value="mxn">MXN</option>
+                    <option value="nzd">NZD</option>
+                    <option value="crude_oil">WTI Crude Oil</option>
+                    <option value="xag">XAG (Silver)</option>
+                    <option value="xau">XAU (Gold)</option>
+                    <option value="zar">ZAR</option>
+                </select>
+            </div>
+            <div class="container mx-auto table-responsive-lg">
+                <table class="table-dark table-bordered table-hover text-center" style="font-size: medium; background: #575E61; width: 100%;">
+                    <thead class="table-dark">
+                    <tr>
+                    </tr>
+                    </thead>
+                    <tbody class="table-dark table-group-divider" style="background: #575E61; font-size: medium;">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="mt-auto">
+            <div class="container-fluid text-black p-2" style="background: #505050;
+            background: linear-gradient(to bottom, rgba(150,34,195,0.65) 0%, rgba(45,253,107,0.35) 100%);" style="font-size: x-small;">
+                <div class="row justify-content-around text-center text-md-start">
+                    <div class="col-md-2 text-center">
+                        <h1 class="fw-bold mt-4">COTTrade Viz</h1>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li class="fw-bold my-1">Products</li>
+                            <li><a href="hist_visualizer.html" class="text-decoration-none text-black">Historical Visualiser</a></li>
+                            <li><a href="cot_table.html" class="text-decoration-none text-black">Committment of Traders (COT) Table</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li class="fw-bold my-1">Learn More</li>
+                            <li><a href="faqs.html" class="text-decoration-none text-black"></a>FAQs</li>
+                            <li><a href="learn_more.html" class="text-decoration-none text-black"></a>Learn More About the COT Data</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li class="fw-bold my-1">About Me</li>
+                            <li><a href="" class="text-decoration-none text-black"></a>Reach me on Social Media</li>
+                            <li><a href="" class="text-decoration-none text-black"></a>Hire Me!!!</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <li class="fw-bold my-1 list-unstyled">Follow me</li>
+                        <ul class="list-unstyled d-flex justify-content-center justify-content-md-start">
+                            <li><a target="_blank" href="https://github.com/Koyejooo" class="text-black"><i class="fa-brands fa-github me-2 fa-2x"></i></a></li>
+                            <li><a target="_blank" href="https://linkedin.com/in/koyejo-adinlewa-05144b107" class="text-blue"><i class="fa-brands fa-linkedin me-2 fa-2x"></i></a></li>
+                            <li><a target="_blank" href="https://twitter.com/Its_Koyejo" class="text-blue"><i class="fa-brands fa-twitter me-2 fa-2x"></i></a></li>
+                        </ul>  
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center pt-0">
+                        <p class="text-center">&copy; 2023 Copyright <a href="#" class="text-black">Kaygeea Solutions</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </body>
+</html>
