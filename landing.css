@@ -4,17 +4,28 @@ Main page body
 ==========================
 */
 body {
-    background-color: skyblue;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+    background-color: rgba(52, 52, 52, 0.45);
+    font-family: 'Inria Serif', serif;
 }
 
-h1 {
-    font-weight: bold;
-    margin-top: 30px;
+/*
+==========================
+Navbar
+==========================
+*/
+.navbar {
+    background-color: linear-gradient(to right, rgba(150,34,195,0.65) 0%, rgba(45,253,107,0.35) 100%);
 }
 
-p {
+/*
+===========================
+Hero section
+===========================
+*/
+h1,
+h2 {
+    color: rgba(153,0,255,1); 
+}
+h4 {
     font-style: italic;
 }
