@@ -22,10 +22,6 @@ Navbar
 Hero section
 ===========================
 */
-h1,
-h2 {
-    color: rgba(153,0,255,1); 
-}
 h4 {
     font-style: italic;
 }
