@@ -32,6 +32,19 @@ export async function getChangeNetPosition () {
     }
     const jsonCOT = await response.json()
 
+    // Create ticker label
+    const tickerLabelContainer = document.querySelector('#ticker-label-container')
+    const tickerLabel = document.createElement('h6')
+    tickerLabel.className = 'ticker-label'
+
+    // Set date for ticker label
+    const dateOfReport = new Date(Object.values(jsonCOT)[0].report_date_as_yyyy_mm_dd)
+    const reportDate = dateOfReport.toDateString().slice(0, 15)
+    tickerLabel.textContent = `Changes in net positions of Non-Commercial 
+                                traders as at ${reportDate}`
+
+    tickerLabelContainer.appendChild(tickerLabel)
+
     // Compute change in net position data
 
     /* In this 1st step, 'instrument' represents the current element in jsonCOT
@@ -58,4 +71,4 @@ export async function getChangeNetPosition () {
   }
 }
 
-getChangeNetPosition()
+// getChangeNetPosition()
