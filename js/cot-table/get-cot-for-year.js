@@ -17,7 +17,7 @@ export async function getCOTDataForYear (selectedCurrency, year) {
     }
     const jsonCOT = await response.json()
 
-    // Process response to filter out necessary data fields
+    // Process response and filter out necessary data fields
     const cotByYear = []
     for (const cotData of jsonCOT) {
       const dataYear = new Date(cotData.report_date_as_yyyy_mm_dd).getFullYear()
@@ -41,7 +41,6 @@ export async function getCOTDataForYear (selectedCurrency, year) {
         cotByYear.push(cotByYearObject)
       }
     }
-    console.log(cotByYear)
     return cotByYear.reverse()
   } catch (error) {
     console.error('Error processing COT data', error)
