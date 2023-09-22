@@ -11,7 +11,7 @@ async function populateTable () {
   currencySelector.addEventListener('change', async function () {
     const selectedCurrency = currencySelector.value
 
-    // Clear the table on the page
+    // Clear any table on the page
     tableHead.innerHTML = '<tr></tr>'
     tableBody.innerHTML = ''
 
