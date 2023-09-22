@@ -47,4 +47,4 @@ export async function getCOTDataForYear (selectedCurrency, year) {
   }
 }
 
-getCOTDataForYear()
+// getCOTDataForYear()
