@@ -164,9 +164,14 @@ Ticker
     /* margin-top: 0.5em;
     margin-bottom: 0.5em; */
 }
+
+#ticker-label-container {
+    background: #212529;
+}
 .ticker-label {
     font-style: italic;
     font-size: x-small;
+    color: whitesmoke;
 }
 
 /* 
