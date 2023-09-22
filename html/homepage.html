@@ -4,18 +4,16 @@
         <meta charset="utf-8">
         <meta name="author" content="Koyejo Adinlewa">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Homepage - COTTradeViz</title>
+        <title>COTTradeViz | Homepage</title>
         <link rel="icon" type="images/x-icon" href="../assets/favicon.ico">
-        <link rel="stylesheet" href="../css/main_style.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-		<script type="module" src="../js/get-cot-for-year.js"></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        <script type="module" src="../js/site_ticker/populate-ticker.js"></script>
+        <script type="module" src="../js/site_ticker/ticker-animation.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="../css/main_style.css">
     </head>
-    <body class="d-flex flex-column min-vh-100" style="background-color: #B4A7D6; font-family: 'Inria Serif', serif;">
-        <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to top, rgba(120,11,219,0.65) 0%, rgba(93,48,243,0.35) 100%);" data-bs-theme="dark">
+    <body class="d-flex flex-column min-vh-100">
+        <nav id="navbar" class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="homepage.html">
                     <img src="../assets/logo.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
@@ -29,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="homepage.html">Home</a>
+                            <a class="nav-link" aria-current="page" href="homepage.html">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,47 +51,43 @@
                     <span class="navbar-text">
                         <a target="_blank" href="https://github.com/Koyejooo"><i class="fa-brands fa-github fa-lg" style="color: #000000;"></i></a>
                         <a target="_blank" href="https://linkedin.com/in/koyejo-adinlewa-05144b107"><i class="fa-brands fa-linkedin fa-lg" style="color: #0072b1;"></i></a>
-                        <a target="_blank" href="https://twitter.com/Its_Koyejo"></a><i class="fa-brands fa-square-x-twitter fa-lg" style="color: #000000"></i></a>
+                        <a target="_blank" href="https://twitter.com/Its_Koyejo"><i class="fa-brands fa-square-x-twitter fa-lg" style="color: #000000"></i></a>
                     </span>                        
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <section class="row">
-                <div class="d-flex gap-2 justify-content-center py-4">
-                    <a href="../ticker-test/index.html" class="text-reset">Site ticker</a>
-                </div>
-            </section>
-            <section class="row" style="font-size: xx-large;">
-                <div class="col">
-                        <h2 class="text-center">
-                            Welcome to <em style="color: darkmagenta">COTTradeViz</em>!!! Your number one destination for visualising Commitment of Traders (COT) data, to get that all important institutional confluence to confirm your trade biases or fine-tune your trading strategy
-                        </h2>
-                    <div class="d-flex gap-2 justify-content-center py-0">
-                        <a class="btn btn-primary btn-lg" href="cot_table.html">Get started</a>
-                    </div>
-                </div>
-            </section>
+        <div class="d-flex flex-row justify-content-start">
+            <h6 class="ticker-label">Change in net positions of Non-Commercial traders as at</h6>
+        </div>
+        <div class="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
+            <div class="mb-4" style="font-size: xx-large;">
+                <h2 class="welcome-note">
+                    Welcome to <em>COTTradeViz</em>!!! Your number one destination for visualising Commitment of Traders (COT) data, to get that all important institutional confluence to confirm your trade biases or fine-tune your trading strategy
+                </h2>
+            </div>
+            <div>
+                <a class="btn btn-primary btn-lg mt-3" href="cot_table.html">Get started</a>
+            </div>
         </div>
         <div class="mt-auto">
-            <div class="container-fluid text-black p-2" style="background: #505050;
-            background: linear-gradient(to bottom, rgba(150,34,195,0.65) 0%, rgba(45,253,107,0.35) 100%); font-size: medium;">
+            <div id="footer" class="container-fluid text-black p-2">
                 <div class="row justify-content-around text-center text-md-start">
                     <div class="col-md-2 text-center">
                         <h2 class="fw-bold mt-4">COTTradeViz</h2>
                     </div>
                     <div class="col-md-2">
                         <ul class="list-unstyled">
-                            <li class="fw-bold my-1">Products</li>
-                            <li><a href="hist_visualizer.html" class="text-decoration-none text-black">Historical Visualiser</a></li>
-                            <li><a href="cot_table.html" class="text-decoration-none text-black">Committment of Traders (COT) Table</a></li>
+                            <li class="fw-bold my-1">Features</li>
+                            <li><a href="#ticker-container" class="text-decoration-none text-black">Net Position Ticker</a></li>
+                            <li><a href="./cot_table.html" class="text-decoration-none text-black">Committment of Traders (COT) Table</a></li>
+                            <li><a href="./hist_visualizer.html" class="text-decoration-none text-black">Historical Visualiser</a></li>
                         </ul>
                     </div>
                     <div class="col-md-2">
                         <ul class="list-unstyled">
                             <li class="fw-bold my-1">Learn More</li>
-                            <li><a href="faqs.html" class="text-decoration-none text-black"></a>FAQs</li>
-                            <li><a href="learn_more.html" class="text-decoration-none text-black"></a>Learn More About the COT Data</li>
+                            <li><a href="./faqs.html" class="text-decoration-none text-black"></a>FAQs</li>
+                            <li><a href="./learn_more.html" class="text-decoration-none text-black"></a>Learn More About the COT Data</li>
                         </ul>
                     </div>
                     <div class="col-md-2">
