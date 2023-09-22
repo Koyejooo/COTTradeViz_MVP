@@ -13,10 +13,10 @@ export async function getChangeNetPosition () {
   let weekOfYear = Math.ceil(days / 7)
 
   // Set WOY to last week of prev year, if current WOY's 1st week of a new year
-  if (weekOfYear === 1 && dayOfWeek !== 6) {
+  if (weekOfYear === 1 && dayOfWeek < 5) {
     year -= 1
     weekOfYear += 51
-  } else if (weekOfYear > 1 && dayOfWeek !== 6) {
+  } else if (weekOfYear > 1 && dayOfWeek < 5) {
     weekOfYear -= 1
   }
 
