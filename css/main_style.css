@@ -150,28 +150,40 @@ Navbar toggler
 Ticker
 =======================================
 */
+@keyframes tickerAnimation {
+    100% {
+        transform: translateX(-100%);
+    }    
+}
 #ticker-container {
+    background: rgba(27, 27, 32, 0.75);
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
+
+.ticker {
+    animation: tickerAnimation 30s infinite linear;
+}
+
+#ticker-container:hover .ticker {
+    animation-play-state: paused;
+}
+
 .change-net-position {
     display: inline-block;
     margin-right: 1.5em;
     font-family: 'CenturyGothic', sans-serif;
     font-size: large;
     font-weight: bold;
-    /* margin-top: 0.5em;
-    margin-bottom: 0.5em; */
 }
 
-#ticker-label-container {
-    background: #212529;
-}
+/* #ticker-label-container {
+    background: rgba(27, 27, 32, 0.75);
+} */
 .ticker-label {
     font-style: italic;
     font-size: x-small;
-    color: whitesmoke;
+    color: rgba(27, 27, 32, 0.75);
 }
 
 /* 
