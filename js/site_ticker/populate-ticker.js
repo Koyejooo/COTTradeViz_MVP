@@ -20,18 +20,18 @@ async function populateTicker () {
   // Create the parent <div> for site ticker
   const parentDiv = document.createElement('div')
   parentDiv.id = 'ticker-container'
-  parentDiv.className = 'd-flex flex-row bg-dark justify-content-between'
+  parentDiv.className = 'd-flex flex-row sticky-top justify-content-between'
 
   // Create the child <div> for site ticker
   const childDiv = document.createElement('div')
-  childDiv.className = 'col'
+  childDiv.className = 'ticker col'
 
   // Add the span elements containing the data, to the child <div>
   if (changesInNetPosition) {
     changesInNetPosition.forEach((changeNetPosition, index) => {
       const currencyName = currencyNames[marketCodes[index]]
 
-      const span = document.createElement('span')
+      const span = document.createElement('div')
       span.className = 'change-net-position mt-2 mb-1'
       if (changeNetPosition === 0) {
         span.style.color = '#575E61'
@@ -46,7 +46,12 @@ async function populateTicker () {
       childDiv.append(span)
     })
   }
-  parentDiv.append(childDiv)
+
+  // Clone childDiv to attach to its end for ticker scrolling
+  const clonedChildDiv = childDiv.cloneNode(true)
+
+  // Append the childDiv & clonedChildDiv (ticker items) to the ticker <div>
+  parentDiv.append(childDiv, clonedChildDiv)
 
   // Add ticker div to body of HTML
   const firstChild = document.querySelector('nav')

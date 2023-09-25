@@ -35,7 +35,7 @@ export async function getChangeNetPosition () {
     // Create ticker label
     const tickerLabelContainer = document.querySelector('#ticker-label-container')
     const tickerLabel = document.createElement('h6')
-    tickerLabel.className = 'ticker-label'
+    tickerLabel.className = 'ticker-label pt-1'
 
     // Set date for ticker label
     const dateOfReport = new Date(Object.values(jsonCOT)[0].report_date_as_yyyy_mm_dd)
