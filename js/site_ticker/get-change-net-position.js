@@ -2,6 +2,8 @@ const cotURL = 'https://publicreporting.cftc.gov/resource/jun7-fc8e.json'
 const headers = { 'X-App-Token': 'OvQJx8soXa21Iwes5jdJMFmVh' }
 export const marketCodes = ['06765A', '084691', '088691', '090741', '092741',
   '095741', '096742', '097741', '098662', '099741', '112741', '122741', '232741']
+// Variable to be used as a flag
+const hasCodeRun = window.localStorage.getItem('codeHasRun')
 
 export async function getChangeNetPosition () {
   // Calculate the current week of the year
@@ -38,10 +40,17 @@ export async function getChangeNetPosition () {
     tickerLabel.className = 'ticker-label pt-1'
 
     // Set date for ticker label
-    const dateOfReport = new Date(Object.values(jsonCOT)[0].report_date_as_yyyy_mm_dd)
-    const reportDate = dateOfReport.toDateString().slice(0, 15)
-    tickerLabel.textContent = `Changes in net positions of Non-Commercial 
-                                traders as at ${reportDate}`
+    if (hasCodeRun !== 'true') {
+      const dateOfReport = new Date(Object.values(jsonCOT)[0].report_date_as_yyyy_mm_dd)
+      const reportDate = dateOfReport.toDateString().slice(0, 15)
+      tickerLabel.textContent = `Changes in net positions of Non-Commercial 
+                                 traders as at ${reportDate}`
+      try {
+        window.localStorage.setItem('codeHasRun', 'true')
+      } catch (error) {
+        console.error('Error storing variable. Kindly clear browser cache', error)
+      }
+    }
 
     tickerLabelContainer.appendChild(tickerLabel)
 
