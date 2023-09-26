@@ -162,7 +162,7 @@ Ticker
 }
 
 .ticker {
-    animation: tickerAnimation 30s infinite linear;
+    animation: tickerAnimation 40s infinite linear;
 }
 
 #ticker-container:hover .ticker {
