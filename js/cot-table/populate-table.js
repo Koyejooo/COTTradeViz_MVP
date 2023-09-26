@@ -43,10 +43,10 @@ async function populateTable () {
       })
       tableBody.appendChild(row)
     })
-    // Create table caption
-    const tableCaption = document.createElement('caption')
-    tableCaption.textContent = `COT Table showing positions of Non-Commercial Traders for the year ${year}`
-    table.appendChild(tableCaption)
   })
+  // Create table caption
+  const tableCaption = document.createElement('caption')
+  tableCaption.textContent = `COT Table showing positions of Non-Commercial Traders for the year ${year}`
+  table.appendChild(tableCaption)
 }
 populateTable()
