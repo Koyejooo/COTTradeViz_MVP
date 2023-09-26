@@ -35,13 +35,13 @@ async function populateTicker () {
       span.className = 'change-net-position mt-2 mb-1'
       if (changeNetPosition === 0) {
         span.style.color = '#575E61'
-        span.innerHTML = `${currencyName} &#8211;${changeNetPosition}`
+        span.innerHTML = `${currencyName} &#8211;${changeNetPosition} Contracts`
       } else if (changeNetPosition < 0) {
         span.style.color = '#D92B2B'
-        span.innerHTML = `${currencyName} &#9660;${changeNetPosition}`
+        span.innerHTML = `${currencyName} &#9660;${changeNetPosition} Contracts`
       } else {
         span.style.color = '#03A60E'
-        span.innerHTML = `${currencyName} &#9650;${changeNetPosition}`
+        span.innerHTML = `${currencyName} &#9650;${changeNetPosition} Contracts`
       }
       childDiv.append(span)
     })
