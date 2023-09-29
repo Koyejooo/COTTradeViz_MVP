@@ -2,11 +2,16 @@ const cotURL = 'https://publicreporting.cftc.gov/resource/jun7-fc8e.json'
 const headers = { 'X-App-Token': 'OvQJx8soXa21Iwes5jdJMFmVh' }
 export const marketCodes = ['06765A', '084691', '088691', '090741', '092741',
   '095741', '096742', '097741', '098662', '099741', '112741', '122741', '232741']
-// Variable to be used as a flag
+const COTReleaseTime = '20:35:00' // Release time of COT data in UTC (+5 mins)
 
 export async function getChangeNetPosition () {
-  // Calculate the current week of the year
+  // Get current date
   const dateToday = new Date()
+
+  // Get current time in UTC
+  const currentTimeUTC = dateToday.toUTCString().slice(17, 25)
+
+  // Calculate the current week of the year
   const dayOfWeek = dateToday.getDay()
   let year = dateToday.getFullYear()
   const firstDay = new Date(dateToday.getFullYear(), 0, 1)
@@ -14,11 +19,16 @@ export async function getChangeNetPosition () {
   let weekOfYear = Math.ceil(days / 7)
 
   // Set WOY to last week of prev year, if current WOY's 1st week of a new year
-  if (weekOfYear === 1 && dayOfWeek < 5) {
-    year -= 1
-    weekOfYear += 51
-  } else if (weekOfYear > 1 && dayOfWeek < 5) {
-    weekOfYear -= 1
+  if (weekOfYear === 1) {
+    if (dayOfWeek >= 5 && currentTimeUTC < COTReleaseTime) {
+      year -= 1
+      weekOfYear += 51
+    }
+    // If dateToday is < Friday @ 20:35, weekOfYear should === previous week
+  } else if (weekOfYear > 1) {
+    if (dayOfWeek >= 5 && currentTimeUTC < COTReleaseTime) {
+      weekOfYear -= 1
+    }
   }
 
   // Construct API endpoint query string with the year & WOY as calculated
