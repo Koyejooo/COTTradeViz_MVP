@@ -20,13 +20,13 @@ export async function getChangeNetPosition () {
 
   // Set WOY to last week of prev year, if current WOY's 1st week of a new year
   if (weekOfYear === 1) {
-    if (dayOfWeek >= 5 && currentTimeUTC < COTReleaseTime) {
+    if (dayOfWeek < 5 && currentTimeUTC < COTReleaseTime) {
       year -= 1
       weekOfYear += 51
     }
     // If dateToday is < Friday @ 20:35, weekOfYear should === previous week
   } else if (weekOfYear > 1) {
-    if (dayOfWeek >= 5 && currentTimeUTC < COTReleaseTime) {
+    if (dayOfWeek < 5 && currentTimeUTC < COTReleaseTime) {
       weekOfYear -= 1
     }
   }
