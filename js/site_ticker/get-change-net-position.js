@@ -16,9 +16,9 @@ export async function getChangeNetPosition () {
   let year = dateToday.getFullYear()
   const firstDay = new Date(dateToday.getFullYear(), 0, 1)
   const days = Math.floor((dateToday - firstDay) / (24 * 60 * 60 * 1000))
-  let weekOfYear = Math.ceil(days / 7)
+  let weekOfYear = 9 // Math.ceil(days / 7)
 
-  // Set WOY to last week of prev year, if current WOY's 1st week of a new year
+  /* // Set WOY to last week of prev year, if current WOY's 1st week of a new year
   if (weekOfYear === 1) {
     if (dayOfWeek < 5 && currentTimeUTC < COTReleaseTime) {
       year -= 1
@@ -29,7 +29,7 @@ export async function getChangeNetPosition () {
     if (dayOfWeek < 5 && currentTimeUTC < COTReleaseTime) {
       weekOfYear -= 1
     }
-  }
+  } */
 
   // Construct API endpoint query string with the year & WOY as calculated
   const apiQueryString = `?yyyy_report_week_ww=${year} Report Week ${weekOfYear}`
