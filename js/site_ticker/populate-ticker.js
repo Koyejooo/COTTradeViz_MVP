@@ -1,4 +1,4 @@
-import { getChangeNetPosition, marketCodes } from '../site_ticker/get-change-net-position.js'
+import { getChangeNetPosition, marketCodes } from './get-change-net-position.js'
 const currencyNames = {
   '06765A': 'OIL',
   '084691': 'XAG',
