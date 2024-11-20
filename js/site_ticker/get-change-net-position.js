@@ -13,10 +13,10 @@ export async function getChangeNetPosition () {
 
   // Calculate the current week of the year
   const dayOfWeek = dateToday.getDay()
-  const year = new Date().getFullYear()
+  const year = dateToday.getFullYear()
   const firstDay = new Date(dateToday.getFullYear(), 0, 1)
   const days = Math.floor((dateToday - firstDay) / (24 * 60 * 60 * 1000))
-  const weekOfYear = Math.ceil(days / 7)
+  const weekOfYear = Math.ceil(days / 7) - 1;
 
   /* // Set WOY to last week of prev year, if current WOY's 1st week of a new year
   if (weekOfYear === 1) {
